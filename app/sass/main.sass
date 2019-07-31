@@ -28,7 +28,7 @@ body
 // Custom Sass / Remove before use
 
 .container
-	max-width: 700px
+	max-width: 1200px
 	padding:
 		right: $gutter/2
 		left: $gutter/2
@@ -36,27 +36,21 @@ body
 		left: auto
 		right: auto
 
-.img-responsive
+img
 	display: block
 	max-width: 100%
 	height: auto
 
-.example-grid
+.top
 	display: grid
-	grid-gap: $gutter
-	grid-template-columns: 1fr 1fr
-	grid-template-areas: "left right"
-	> div:first-child
-		grid-area: left
-	> div:last-child
-		grid-area: right
-	+media-breakpoint-down(xs)
-		display: block
-		> div
-			padding: $gutter/2 0
-	
-.example-img
-	width: 100%
-
-.parent // Lazy Load Placeholder Generator: https://webdesign-master.ru/services/lazy/
-	background-image: url(data:image/gif;base64,R0lGODlhCgAIAIABAN3d3f///yH5BAEAAAEALAAAAAAKAAgAAAINjAOnyJv2oJOrVXrzKQA7)
+	grid-template-columns: 1fr 5fr 2fr
+	grid-column-gap: 72px
+	align-items: center
+	&__adress
+		display: flex
+		align-items: center
+.map_tag
+	width: 28px
+	height: auto
+	margin:
+		right: 10px
