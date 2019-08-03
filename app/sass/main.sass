@@ -8,49 +8,134 @@
 ::selection
 	background-color: $accent
 	color: #fff
-
+*
+	box-sizing: border-box
 input, textarea
 	outline: none
 	&:focus:required:invalid
 		border-color: red
 	&:required:valid
 		border-color: green
-
-body
+html
 	font-size: 16px
+body
 	min-width: 320px
 	position: relative
 	line-height: 1.65
-	font-family: 'Roboto', sans-serif
+	font-family: 'Circe', sans-serif
 	overflow-x: hidden
 	color: $text
 
 // Custom Sass / Remove before use
 
 .container
-	max-width: 1200px
+	max-width: 1160px
 	padding:
-		right: $gutter/2
-		left: $gutter/2
+		right: $gutter
+		left: $gutter
 	margin:
 		left: auto
 		right: auto
+	position: relative
 
 img
 	display: block
 	max-width: 100%
 	height: auto
-
+svg
+	width: 100%
+	height: auto
+	object-fit: contain
 .top
 	display: grid
-	grid-template-columns: 1fr 5fr 2fr
-	grid-column-gap: 72px
+	grid-template-columns: 115px 1fr 1fr
+	grid-column-gap: 75px
 	align-items: center
+	margin-top: 1.125rem
+	line-height: 1.2
+	color: #ffffff
+	&--main
+		position: absolute
+		width: 100%
+		padding-right: 40px
+	&__descriptor
+		margin-top: 32px
 	&__adress
 		display: flex
+		justify-content: flex-end
 		align-items: center
-.map_tag
-	width: 28px
-	height: auto
-	margin:
-		right: 10px
+		margin-top: 32px
+		padding-right: 29px
+	.map_tag
+		width: 27px
+		height: auto
+		margin:
+			right: 8px
+			bottom: 6px
+		&--fill
+		
+.slide
+	padding: 260px 0 181px 0
+	color: #ffffff
+	display: grid
+	grid-template-areas: "btxt btxt btxt" "info info toadr"
+	&__btxt
+		grid-area: btxt
+		font-size: 5.625rem
+		font-weight: 900
+		line-height: 1.1
+		margin-left: -7px
+	&__info
+		grid-area: info
+		margin-top: 9px
+	&__txt
+		font-size: 2.375rem
+		line-height: 1.05
+	&__working_txt
+		margin-top: 57px
+		font-size: 2.125rem
+		font-weight: 900
+		line-height: 1.175
+		text-transform: uppercase
+	&__working_hours
+		margin-top: 10px
+		font-size: 3.8125rem
+		font-weight: 900
+		color: rgb(253, 211, 47)
+		line-height: 1
+		text-transform: uppercase
+	&__working_days
+		font-size: 1.75rem
+		color: #7d7d7d
+		line-height: 1.2
+		text-transform: lowercase
+	&__toadr
+		grid-area: toadr
+		justify-self: right
+		margin-top: 9px
+		width: 16rem
+		height: 16.9rem
+		display: flex
+		flex-direction: column
+		justify-content: flex-end
+		align-items: flex-start
+		padding: 23px 0 23px 24px
+		border: 1rem solid #fdd32f
+	&__link
+		font-size: 1.75rem
+		font-weight: 900
+		color: #ffffff
+		text-decoration: underline
+		text-decoration-color: #b9a981
+		text-underline-position: under
+	.map_tag
+		margin-bottom: 16px
+		width: 35px
+
+
+		
+
+.fst_scr
+	background-position: center
+	background-size: cover
+	background-repeat: no-repeat

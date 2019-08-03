@@ -6,4 +6,8 @@
 /**/*.DS_Store
 
 /scr/
-/app/img
+/app/img/**/*.jpg
+/app/img/**/*.png
+/app/img/**/*.gif
+/source/
+/app/fonts/fontawesome-free-5.10.1-desktop/
