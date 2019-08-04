@@ -25,7 +25,8 @@ body
 	font-family: 'Circe', sans-serif
 	overflow-x: hidden
 	color: $text
-
+a
+	text-underline-position: under
 // Custom Sass / Remove before use
 
 .container
@@ -37,7 +38,26 @@ body
 		left: auto
 		right: auto
 	position: relative
-
+h1, .h1, h2, .h2
+	font-weight: 900
+	&::before
+		content: ""
+		display: inline-flex
+		width: 66px
+		height: 34px
+		background: url("data:image/svg+xml;charset=UTF-8,%3csvg xmlns='http://www.w3.org/2000/svg' width='50.539' height='4.135' viewBox='0 0 13.372 1.094'%3e%3cpath d='M.001.565l13.37-.036' fill='none' stroke='%23fdd32f' stroke-width='.794'/%3e%3c/svg%3e") no-repeat 0% 50% 
+h1, .h1
+	font-size: 3.625rem
+h2, .h2
+	font-size: 3.375rem
+h3, .h3
+	font-size: 2.125rem
+h4, .h4
+	font-size: 1.5rem
+.h3, .h4 
+	font-weight: bold
+	color: #000000
+	line-height: 1.2
 img
 	display: block
 	max-width: 100%
@@ -127,15 +147,95 @@ svg
 		color: #ffffff
 		text-decoration: underline
 		text-decoration-color: #b9a981
-		text-underline-position: under
 	.map_tag
 		margin-bottom: 16px
 		width: 35px
 
+.features
+	padding: 195px 0 165px
+	&__bg
+		position: relative
+		margin:
+			top: -95px
+			bottom: -8px
+		background: url('../img/struzhka1.png') no-repeat 15% 0, url('../img/struzhka2.png') no-repeat 86% 108%
+		z-index: 10
+	&__wrap
+		display: grid
+		grid-template-columns: 1fr 1fr 1fr
+		grid-gap: 32px
+		margin-top: 44px
+.feature
+	display: grid
+	grid-template-areas: "icon name name name" "icon descr descr descr"
+	grid-column-gap: 13px 
+	&__icon
+		grid-area: icon
+		width: 79px
+		height: 79px
+		background-color: #fdd32f
+		border-radius: 50%
+		display: flex
+		justify-content: flex-start
+		align-items: center
+		overflow: hidden
+	&__img
+		width: 86%
+	&__name
+		grid-area: name
+		line-height: 1
+		margin-bottom: 8px
+	&__descr
+		grid-area: descr
+		font-size: 1.125rem
+		line-height: 1.4
 
-		
-
+.shares
+	padding: 68px 0 113px
+.share
+	display: grid
+	grid-template-columns: repeat(4, 1fr)
+	grid-gap: 32px
+	margin-top: 44px
+	&__item
+		display: flex
+		flex-direction: column
+	&__img_wrap
+		position: relative
+		margin-bottom: 16px
+		&::before
+			content: ""
+			display: block
+			padding-top: 66.4%
+	&__img
+		position: absolute
+		top: 0
+		right: 0
+		left: 0
+		bottom: 0
+		object-fit: cover
+	&__name
+		text-decoration: underline
+		text-decoration-color: #b2b2b2
+	&__date
+		margin-top: 7px
+		font-size: 0.875rem
+.fos
+	display: grid
+	grid-template-columns: 3fr 4fr
+	&__window
+		grid-column-start: 2
+		background-color: #ffffff
+		border-radius: 5px
+		text-align: center
+		margin: 60px 0
+		padding: 30px 45px 45px
+		&__txt
+			font-size: 1.125rem
+			line-height: 1.3
 .fst_scr
 	background-position: center
 	background-size: cover
 	background-repeat: no-repeat
+.gray
+	background-color: #ededed
