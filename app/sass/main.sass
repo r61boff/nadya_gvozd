@@ -229,13 +229,91 @@ svg
 		border-radius: 5px
 		text-align: center
 		margin: 60px 0
-		padding: 30px 45px 45px
-		&__txt
-			font-size: 1.125rem
-			line-height: 1.3
+		padding: 30px 45px 40px
+	&__txt
+		font-size: 1.125rem
+		line-height: 1.3
+	&__form
+		display: grid
+		//grid-template-columns: repeat(5, 1fr) 0.5fr 0.5fr repeat(5, 1fr)
+		//grid-template-areas: "name name name name name name phone phone phone phone phone phone" "theme theme theme theme theme theme theme theme theme submit submit submit"
+		grid-template-columns: repeat(4, 1fr)
+		grid-template-areas: "name name phone phone" "theme theme theme submit"
+		
+		grid-gap: 10px
+		margin: 19px 0 28px
+	&__input
+		border-radius: 1.4375rem
+		border: 2px solid #000
+		line-height: 2.875rem
+		padding: 0px 20px
+		&--name
+			grid-area: name
+		&--phone
+			grid-area: phone
+		&--theme
+			grid-area: theme
+		&--submit
+			grid-area: submit
+	&__soglasie
+		display: flex
+		justify-content: flex-start
+		align-items: flex-start
+	&__soglasen_txt
+		text-align: left
+		font-size: 0.8125rem
+		line-height: 1.3
+
 .fst_scr
 	background-position: center
 	background-size: cover
 	background-repeat: no-repeat
 .gray
 	background-color: #ededed
+.btn_submit
+	border-radius: 1.4375rem
+	line-height: 2.875rem
+	border: none
+	background-color: #fcd22e
+	font-size: 0.875rem
+	font-weight: bold
+	text-transform: uppercase
+input[type=checkbox]
+	position: absolute
+	display: block
+	width: 1px
+	height: 1px
+	opacity: 0
+	left: -9999px
+	&~label.checkbox
+		display: inline-flex
+		justify-content: center
+		align-items: center
+		border-style: solid
+		border-width: 1px
+		border-color: #ccc
+		border-radius: 5px
+		background-color: #efefef
+		width: 1.25rem
+		height: 1.25rem
+		margin-right: 12px
+		&::before
+			content: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAoAAAAHCAYAAAAxrNxjAAAAa0lEQVQYlYXOsQ2CUACE4e/FkBhKZ7ClI6E0sSWhJU7ACkzAAkzAAHSWlk5hZ2FwDCuSVzzhyrv/chfsq0G7B13xRQn5H6jCgstq3DEgRFCBD+q4ecITEzKc8cYtNXPEjAde6LaOHzCiT4U/JzIMnuqzUz0AAAAASUVORK5CYII=')
+			//display: block
+			//position: relative
+			//bottom: 8%
+			//width: 0.65rem
+			//height: 0.4rem
+			//border-style: solid
+			//border-top: none
+			//border-right: none
+			//border-width: 2px
+			//border-color: #000000
+			//transform: rotate(-55deg)
+			opacity: 0
+			//transition: all .2s ease
+	&:checked~label.checkbox
+		background-color: #fcd22e
+		border-color: #fcd22e
+		&::before
+			opacity: 1
