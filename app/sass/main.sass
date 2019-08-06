@@ -71,15 +71,26 @@ svg
 	grid-template-columns: 115px 1fr 1fr
 	grid-column-gap: 75px
 	align-items: center
-	margin-top: 1.125rem
+	padding-top: 1.125rem
 	line-height: 1.2
 	color: #ffffff
+	&--footer
+		grid-template-columns: 80px 2fr 3fr
+		grid-column-gap: 20px
+		padding-top: 1.4rem
 	&--main
 		position: absolute
 		width: 100%
 		padding-right: 40px
+	&__logo
+		&--footer
+			filter: invert(100)
 	&__descriptor
 		margin-top: 32px
+		&--footer
+			color: #000000
+			margin-top: 0px
+			align-self: end
 	&__adress
 		display: flex
 		justify-content: flex-end
@@ -263,6 +274,36 @@ svg
 		text-align: left
 		font-size: 0.8125rem
 		line-height: 1.3
+
+.gallery
+	padding: 4.25rem 0 3.3rem
+	&__wrap
+		display: flex
+		margin: 35px -15px
+		justify-content: center
+	&__item
+		padding: 0 15px
+		flex: 1 1
+		max-width: 230px
+
+.contacts
+	display: flex
+	justify-content: stretch
+	flex-wrap: wrap
+	margin-top: 39px
+	&__item
+		display: grid
+		grid-template-columns: 2.375rem 1fr
+		grid-template-rows: 1rem
+		grid-gap: 0.375rem
+		align-items: start
+		flex: 1
+	&__icon
+		grid-row: 1/3
+	&__name
+		font-weight: 900
+		text-transform: uppercase
+		
 
 .fst_scr
 	background-position: center

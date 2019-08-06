@@ -22,7 +22,9 @@
 	<header>
 		<div class="container">
 			<div class="top top--main" style="background-color:;">
-				<div class="top__logo"><img src="/img/logo.svg" alt=""></div>
+				<div class="top__logo">
+					<img class="top__logo_img" src="/img/logo.svg" alt="Гвоздь">
+				</div>
 				<div class="top__descriptor">«Всё для дома» в современном торговом комплексе <br>на пересечении МКАД и Волоколамского шоссе</div>
 				<div class="top__adress">
 					<div class="map_tag map_tag--fill">
@@ -136,7 +138,7 @@
 				</div>
 			</div>
 		</div>
-		<div class="gray fos__bg" style="background: url('/img/fos_bg.jpg') no-repeat center;background-size: cover">
+		<div class="fos__bg" style="background: url('/img/fos_bg.jpg') no-repeat center;background-size: cover">
 			<div class="container">
 				<div class="fos">
 					<div class="fos__window">
@@ -156,9 +158,60 @@
 				</div>
 			</div>
 		</div>
+		<div class="gallery__bg">
+			<div class="container">
+				<div class="gallery">
+					<div class="h2">Мы ждем Вас!</div>
+					<div class="gallery__wrap">
+						<div class="gallery__item"><img src="img/gal_item.jpg" alt="" class="gallery__item_img"></div>
+						<div class="gallery__item"><img src="img/gal_item.jpg" alt="" class="gallery__item_img"></div>
+						<div class="gallery__item"><img src="img/gal_item.jpg" alt="" class="gallery__item_img"></div>
+						<div class="gallery__item"><img src="img/gal_item.jpg" alt="" class="gallery__item_img"></div>
+						<div class="gallery__item"><img src="img/gal_item.jpg" alt="" class="gallery__item_img"></div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="map">
+			<script type="text/javascript" charset="utf-8" async src="https://api-maps.yandex.ru/services/constructor/1.0/js/?um=constructor%3Ae58f74a26bf3cdc29afb827d8c6d3dd8842c51f90ffb659bf945e55715da694c&amp;width=100%25&amp;height=400&amp;lang=ru_RU&amp;scroll=false"></script>
+		</div>
 	</main>
-	<footer>
-		
+	<footer class="gray">
+		<div class="container">
+			<div class="top top--footer">
+				<div class="top__logo top__logo--footer">
+					<img src="/img/logo.svg" alt="Гвоздь" class="top__logo_img top__logo_img--footer">
+				</div>
+				<div class="to__descriptor top__descriptor--footer">«Всё для дома» в современном торговом комплексе<br> на пересечении МКАД и Волоколамского шоссе</div>
+			</div>
+			<div class="contacts">
+				<div class="contacts__item">
+					<div class="contacts__icon">
+						<svg xmlns="http://www.w3.org/2000/svg" viewbox="0 0 462.6173 462.652"><defs><clipPath id="a"><path d="M0 346.989h346.963V0H0z"/></clipPath></defs><g clip-path="url(#a)" transform="matrix(1.33333 0 0 -1.33333 0 462.652)"><path d="M185.3882 103.7319c-4.358-6.951-13.254-9.505-20.635-5.92-14.398 7.232-27.676 16.495-39.43 27.516a167.6368 167.6368 0 0 0-27.511 39.425c-3.585 7.381-1.035 16.277 5.92 20.635l24.423 15.356-66.806 128.588c-23.977-14.567-53.352-39.013-53.352-65.408v-7.997c2.41-135.919 112.011-245.52 247.93-247.929h7.997c26.391 0 50.841 29.379 65.407 53.355l-130.318 64.022z" fill="#ffc000"/><path d="M263.9238 15.9956h-7.997c-131.502 2.405-237.526 108.43-239.931 239.931v7.998c0 20.131 21.435 40.062 42.109 53.867l56.784-115.904-15.46-9.74c-10.439-6.552-14.234-19.927-8.798-30.983 7.649-15.233 17.479-29.269 29.175-41.668 12.336-11.563 26.277-21.282 41.386-28.866 11.048-5.413 24.399-1.59 30.913 8.844l9.732 15.446 115.904-56.785c-13.757-20.697-33.693-42.14-53.817-42.14m-184.817 314.054a8.1995 8.1995 0 0 0 6.396.481 7.862 7.862 0 0 0 4.585-3.999l49.001-100.89c1.769-3.682.531-8.106-2.897-10.333l-7.643-4.798-56.745 115.653c2.573 1.415 5.014 2.742 7.303 3.886m146.43-190.96l100.928-49.026a7.8724 7.8724 0 0 0 4.042-4.585 8.298 8.298 0 0 0-.496-6.396c-1.137-2.273-2.456-4.725-3.866-7.264l-115.694 56.715 4.8 7.596c2.202 3.425 6.6 4.689 10.286 2.96m107.969-34.639l-101.006 49.044c-11.001 5.249-24.196 1.477-30.757-8.798l-23.122-36.727c-2.14-3.495-6.58-4.808-10.279-3.038a159.2524 159.2524 0 0 0-37.188 25.832 159.2233 159.2233 0 0 0-26.153 37.477c-1.8 3.706-.507 8.174 2.992 10.349l36.79 23.145c10.259 6.592 14 19.791 8.716 30.784l-49.048 100.987a23.7233 23.7233 0 0 1-13.852 12.204c-6.151 2.089-12.883 1.605-18.666-1.343-7.358-3.663-71.933-37.119-71.933-80.442v-7.998c1.199-67.473 28.504-131.857 76.177-179.62l.129-.125c47.764-47.678 112.148-74.983 179.621-76.181h7.997c43.309 0 76.779 64.567 80.403 71.892 2.96 5.796 3.449 12.544 1.359 18.707-2.027 6.072-6.42 11.067-12.18 13.851"/></g></svg>
+					</div>
+					<div class="contacts__name">Телефон:</div>
+					<a href="" class="contacts__link">+7 (499) 400 91 88</a>
+				</div>
+				<div class="contacts__item">
+					<div class="contacts__icon">
+						<svg xmlns="http://www.w3.org/2000/svg" viewbox="0 0 639.9467 642.6653"><path d="M74.6603 199.5045l-63.9947 48.5267 63.9947 48.532zM319.9735 13.384L249.688 66.7133h140.572zM376.1923 440.026l253.088 191.9733v-383.968l-63.9947 48.532z" fill="#ffc000"/><path d="M629.2808 248.0312l-63.9947-48.5267v97.0587zM74.6603 296.5637l-63.9947-48.532v383.968l253.088-191.9733z" fill="#ffc000"/><path d="M376.1923 440.026l-56.2187 42.652-56.22-42.652-253.088 191.9733h618.6147zM138.6547 130.708h362.636v85.3267h-362.636z" fill="#ffc000"/><path d="M319.974.0005l-73.88 56.0467H63.9953V194.214L.0007 242.6979v399.968h639.9466v-399.968l-63.9946-48.484V56.0472H393.858zm0 26.768l38.58 29.2787h-77.1547zM85.326 291.2832V77.3792h469.2947v213.904L319.974 469.294zm490.6267-70.312l35.6786 27.06-35.6786 27.0707zm-547.632 27.06l35.6746-27.06v54.1307zm365.5266 191.984l224.768-170.5013v341.008zM21.3313 269.5139l224.7734 170.5013L21.3313 610.5219zm354.8614 183.8866L597.57 621.3325H42.3767l221.3773-167.932 56.22 42.6627z"/><path d="M490.6253 205.368H149.32v-63.9947h341.3053zm21.332-85.3253H127.988V226.7h383.9693zM149.3213 269.3627h42.6627v21.332h-42.6627zM213.316 269.3627h277.3093v21.332H213.316zM149.3213 312.0253h42.6627v21.332h-42.6627zM213.316 312.0253h277.3093v21.332H213.316zM213.316 354.6893h213.3147v21.332H213.316z"/></svg>
+					</div>
+					<div class="contacts__name">E-mail:</div>
+					<a href="" class="contacts__link">vsedlyadoma@mail.ru</a>
+				</div>
+				<div class="contacts__item">
+					<div class="contacts__icon"></div>
+					<div class="contacts__name">Адрес:</div>
+					<a class="contacts__link">Москва, Волоколамское шоссе, 103<br>
+											  ТК Гвоздь, 2 этаж</a>
+				</div>
+				<div class="contacts__social">
+					<div class="contacts__social_name">Социальные сети:</div>
+					<a href="" class="contacts__social_link"></a>
+					<a href="" class="contacts__social_link"></a>
+				</div>
+			</div>
+		</div>
 	</footer>
 	<script src="js/scripts.min.js"></script>
 
