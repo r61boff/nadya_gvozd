@@ -18,6 +18,7 @@ input, textarea
 		border-color: green
 html
 	font-size: 16px
+	margin-right: 0px!important
 body
 	min-width: 320px
 	position: relative
@@ -38,6 +39,11 @@ a
 		left: auto
 		right: auto
 	position: relative
+@media screen and (max-width: $phone)
+	.container
+		padding:
+			right: $gutter/2
+			left: $gutter/2
 h1, .h1, h2, .h2
 	font-weight: 900
 	&::before
@@ -50,45 +56,136 @@ h1, .h1
 	font-size: 3.625rem
 h2, .h2
 	font-size: 3.375rem
+h2
+	margin-top: 0.6125rem
 h3, .h3
 	font-size: 2.125rem
+h3
+	margin-top: 0.875rem
 h4, .h4
 	font-size: 1.5rem
+h4
+	margin: 1.5rem 0 0.6125rem
 .h3, .h4 
 	font-weight: bold
 	color: #000000
 	line-height: 1.2
+p, .p, ul, ol
+	font-size: 1.125rem
+	line-height: 1.45
+	margin: 0
+@media screen and (max-width: $medium)
+	h1, .h1
+		font-size: 2.75rem
+	h2, .h2
+		font-size: 2.5rem
+	h2
+		margin-top: 0.6125rem
+	h3, .h3
+		font-size: 1.75rem
+	h3
+		margin-top: 0.875rem
+	h4, .h4
+		font-size: 1.5rem
+	h4
+		margin: 1.5rem 0 0.6125rem
+	.h3, .h4 
+		font-weight: bold
+		color: #000000
+		line-height: 1.2
+@media screen and (max-width: $tablet)
+	h1, .h1
+		font-size: 2.5rem
+	h2, .h2
+		font-size: 2rem
+	h2
+		margin-top: 0.6125rem
+	h3, .h3
+		font-size: 1.75rem
+	h3
+		margin-top: 0.875rem
+	h4, .h4
+		font-size: 1.5rem
+	h4
+		margin: 1.5rem 0 0.6125rem
+	.h3, .h4 
+		font-weight: bold
+		color: #000000
+		line-height: 1.2
+@media screen and (max-width: $phone)
+	h1, .h1, h2, .h2 
+		font-size: 2rem
+		line-height: 1.1
+		&::before
+			height: 24px
+			width: 52px
+	h2, .h2
+		font-size: 1.8rem
+	h3, .h3
+		1.6rem
+table
+	width: 100%
+	margin: 2.7125rem 0 1rem
+	font-size: 1.125rem
+	display: inline-block
+	overflow-x: scroll
+	white-space: nowrap
+	max-width: 100%	
+tr
+	&:nth-child(2n+1)
+		background-color: #ececec
+	&:first-child
+		background-color: #f1d143
+th, td
+	padding: 0.7125rem 1.25rem
+th
+	line-height: 2
+	font-size: 0.875rem
+	text-transform: uppercase
+td
+	line-height: 1.75rem
+ul, ol
+	margin: 1.875rem 0 1rem
+	padding: 0
+	list-style-position: inside
+	line-height: 1.96
+ul
+	list-style: none
+	li
+		&::before
+			content: url("data:image/svg+xml;charset=UTF-8,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 2.3099 2.126' height='12' width='18'%3e%3cpath d='M.7113 2.118l.8872.008.008-1.5746L2.31.024 0 0l.7113.5435z' fill='%233d4d5e'/%3e%3c/svg%3e")
+			margin-right: 0.375rem
 img
 	display: block
 	max-width: 100%
 	height: auto
 svg
-	width: 100%
-	height: auto
-	object-fit: contain
+	//width: 100%
+	//height: auto
+	//object-fit: contain
 .top
 	display: grid
 	grid-template-columns: 115px 1fr 1fr
 	grid-column-gap: 75px
 	align-items: center
-	padding-top: 1.125rem
+	padding: 1.125rem 0 2.325rem
 	line-height: 1.2
-	color: #ffffff
 	&--footer
 		grid-template-columns: 80px 2fr 3fr
 		grid-column-gap: 20px
-		padding-top: 1.4rem
+		padding: 1.4rem 0 0
 	&--main
+		color: #ffffff
 		position: absolute
 		width: 100%
 		padding-right: 40px
 	&__logo
-		&--footer
-			filter: invert(100)
+		filter: invert(100)
+		&--main
+			filter: invert(0)
 	&__descriptor
 		margin-top: 32px
 		&--footer
-			color: #000000
 			margin-top: 0px
 			align-self: end
 	&__adress
@@ -104,7 +201,23 @@ svg
 			right: 8px
 			bottom: 6px
 		&--fill
-		
+@media screen and (max-width: $medium)
+	.top
+		grid-template-columns: 100px 3fr 2fr
+		grid-column-gap: 2rem
+		&--footer
+			grid-template-columns: 75px 4fr 1fr
+@media screen and (max-width: $phone)
+	.top
+		grid-template-columns: minmax(80px, 1fr) 5fr
+		grid-gap: 1rem
+		&__descriptor
+			margin-top: 0
+			display: none
+		&__adress
+			//grid-column: 1/3
+			margin-top: 0
+			padding: 0
 .slide
 	padding: 260px 0 181px 0
 	color: #ffffff
@@ -161,7 +274,84 @@ svg
 	.map_tag
 		margin-bottom: 16px
 		width: 35px
-
+@media screen and (max-width: $medium)
+	.slide
+		padding: 225px 0 140px 0
+		&__btxt
+			font-size: 4.625rem
+		&__txt
+			font-size: 1.75rem
+@media screen and (max-width: $tablet)
+	.slide
+		padding: 225px 0 140px 0
+		&__btxt
+			font-size: 3.625rem
+		&__txt
+			font-size: 2rem
+		&__working_txt
+			font-size: 1.7125rem
+		&__working_hours
+			font-size: 2.8125rem
+		&__toadr
+			width: 14rem
+			height: 14rem
+		&__link
+			font-size: 1.475rem
+@media screen and (max-width: $phone)
+	.slide
+		grid-template-columns: 1fr
+		grid-template-areas: unset
+		grid-gap: 1rem
+		padding: 9rem 0 6rem
+		&__btxt
+			grid-area: unset
+			margin: 0
+			font-size: 2.5rem
+		&__txt
+			font-size: 1.5rem
+		&__info
+			display: contents
+			grid-area: unset
+		&__toadr
+			grid-area: unset
+		&__working
+			order: 3
+			&_txt
+				margin: 0
+.breadcrumbs
+	padding: 1.75rem 0 1.25rem
+	font-size: 0.8125rem
+	line-height: 1.231
+	a
+		color: #5495fc
+		text-decoration: none
+		&::after
+			content: "\00A0\00A0/\00A0\00A0"
+			color: #000000
+.content
+	margin-bottom: 5.5rem
+	overflow-x: hidden
+	&__img_wrap
+		max-width: 450px
+		float: right
+		margin-left: 0.5rem
+		+ p
+			margin-top: -4px
+			+ p + p
+				margin-top: 1rem
+	&__gallery
+		display: grid
+		grid-template-columns: repeat(4, 1fr)
+		grid-gap: 32px
+		margin: 3.25rem 0 2.25rem
+		&_item
+			&::before
+				padding-top: 66%
+@media screen and (max-width: $phone)
+	.content
+		&__gallery
+			grid-template-columns: repeat(2, 1fr)
+			grid-gap: 1rem
 .features
 	padding: 195px 0 165px
 	&__bg
@@ -176,6 +366,20 @@ svg
 		grid-template-columns: 1fr 1fr 1fr
 		grid-gap: 32px
 		margin-top: 44px
+@media screen and (max-width: $medium)
+	.features
+		padding: 9.065rem 0 6.25rem
+		&__wrap
+			grid-template-columns: 1fr 1fr
+@media screen and (max-width: $medium)
+	.features
+		&__wrap
+			grid-gap: 1.25rem
+@media screen and (max-width: $phone)
+	.features
+		padding: 9.065rem 0 6.25rem
+		&__wrap
+			grid-template-columns: 1fr
 .feature
 	display: grid
 	grid-template-areas: "icon name name name" "icon descr descr descr"
@@ -201,8 +405,169 @@ svg
 		font-size: 1.125rem
 		line-height: 1.4
 
+.mall
+	display: grid
+	grid-template-columns: 1fr 1fr 1fr
+	grid-gap: 2rem
+	margin-top: 2.6125rem
+	&__wrap
+		padding: 4.25rem 0 7.5rem
+	&__ul
+		align-self: start
+		background-color: #ffffff
+		border-radius: 10px
+		padding: 0.75rem 0
+	&__ul_li
+		display: flex
+		align-items: center
+		padding: 0.4375rem 1rem
+		min-height: 3rem
+		background-color: #ffffff
+		line-height: 1.125
+		&:hover:not(.mall__ul_li--active)
+			background-color: #f1d14388
+			cursor: pointer
+		svg
+			max-height: 100%
+			path
+				transition: all 0.2s ease
+				stroke: #000000
+		&--active
+			position: relative
+			background-color: #f1d143
+			font-weight: 900 
+			&::after
+				content: ""
+				background-image: url("data:image/svg+xml;charset=UTF-8,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 2.6458 13.2292' width='10'%3e%3cpath d='M2.6458 6.6146L0 13.2292V0z' opacity='.92' fill='%23f1d143'/%3e%3c/svg%3e")
+				background-size: 100% 100%
+				background-repeat: no-repeat
+				display: block
+				position: absolute
+				top: 0
+				height: 100%
+				width: 10px
+				left: calc(100%)
+			svg
+				path
+					stroke: #ffffff
+	&__ul_icon
+		flex: 0 0 1.4rem
+		height: 1.4rem
+	&__ul_name
+		padding-left: 0.6rem
+	&__info
+		grid-column: 2/4
+		padding: 30px 30px 30px 32px
+		background-color: #ffffff
+		border-radius: 10px
+	&__tabs
+		margin-top: 3.5rem
+	&__tab
+		display: grid
+		grid-template-columns: repeat(4, 1fr)
+		grid-template-areas: "name name name name" "txt txt txt txt" "contacts contacts contacts link" "gallery gallery gallery gallery"
+		grid-gap: 8px
+		transition: all 0.2s ease 
+		transform: scale(0)
+		height: 0
+		&--active
+			transform: scale(1)
+			height: auto
+		&_name
+			grid-area: name
+		&_txt
+			grid-area: txt
+			padding: 0.625rem 0 1.75rem
+		&_contacts
+			grid-area: contacts
+		&_link
+			color: inherit
+			grid-area: link
+			align-self: end
+			margin-bottom: 0.6125rem
+			&:hover
+				color: inherit
+				text-decoration: none
+		&_gallery
+			grid-area: gallery 
+			display: grid
+			grid-template-columns: repeat(4, 1fr)
+			grid-template-areas: "big-img big-img small-img1 small-img2" "big-img big-img small-img3 small-img4"
+			grid-gap: 0.5rem
+			margin-top: 2.0625rem
+		&_img_wrap
+			position: relative
+			&::before
+				padding-top: 83% 
+			&:first-child
+				grid-area: big-img
+@media screen and (max-width: $medium)
+	.mall
+		margin-top: 1.6125rem
+		&__wrap
+			padding: 2.25rem 0 3.5rem
+@media screen and (max-width: $tablet)
+	.mall
+		grid-template-columns: 1fr
+		&__ul
+			position: relative
+			max-height: 3.75rem
+			z-index: 99
+			&_li
+				transform: scale(0)
+				height: 0
+				min-height: unset
+				padding: 0 16px
+				transition: all 0.2s ease
+				&:hover:not(.mall__ul_li--active)
+					background-color: #ffffff
+					cursor: initial
+				&--active, &--shown
+					transform: scale(1)
+					height: 100%
+					padding: 7px 16px
+		&__info
+			grid-column: 1
+@media screen and (max-width: $phone)
+	.mall
+		&__map
+			transform: scale(0)
+			height: 0
+		&__ul
+			position: relative
+			max-height: 5.75rem
+		&__info
+			padding: 1rem
+		&__tabs
+			margin-top: 0.5rem
+		&__tab
+			grid-template-columns: 1fr
+			grid-template-areas: unset
+			&_name
+				grid-area: unset
+			&_txt
+				grid-area: unset
+			&_contacts
+				grid-area: unset
+			&_link
+				grid-area: unset
+			&_gallery
+				grid-area: unset
+				margin: 0 -1* $gutter/4
+			&_img_wrap
+				flex: 0 0 50%
+				max-width: 50%
+				height: 10rem
+				padding: 0 $gutter/4
+				&::before
+					padding: 0
+			.mall__tab_img
+				position: static
 .shares
-	padding: 68px 0 113px
+	padding: 4.25rem 0 7.0625rem
+@media screen and (max-width: $medium)
+	.shares
+		padding: 2.25rem 0 4.0625rem
 .share
 	display: grid
 	grid-template-columns: repeat(4, 1fr)
@@ -225,12 +590,18 @@ svg
 		left: 0
 		bottom: 0
 		object-fit: cover
+		height: 100%
+		width: 100%
 	&__name
 		text-decoration: underline
 		text-decoration-color: #b2b2b2
 	&__date
 		margin-top: 7px
 		font-size: 0.875rem
+@media screen and (max-width: $medium)
+	.share
+		grid-template-columns: repeat(2, 1fr)
+
 .fos
 	display: grid
 	grid-template-columns: 3fr 4fr
@@ -248,9 +619,8 @@ svg
 		display: grid
 		//grid-template-columns: repeat(5, 1fr) 0.5fr 0.5fr repeat(5, 1fr)
 		//grid-template-areas: "name name name name name name phone phone phone phone phone phone" "theme theme theme theme theme theme theme theme theme submit submit submit"
-		grid-template-columns: repeat(4, 1fr)
-		grid-template-areas: "name name phone phone" "theme theme theme submit"
-		
+		grid-template-columns: 9.375rem 1fr 1fr 9.375rem
+		grid-template-areas: "name name phone phone" "theme theme theme submit" "sogl sogl sogl sogl"
 		grid-gap: 10px
 		margin: 19px 0 28px
 	&__input
@@ -267,6 +637,7 @@ svg
 		&--submit
 			grid-area: submit
 	&__soglasie
+		grid-area: sogl
 		display: flex
 		justify-content: flex-start
 		align-items: flex-start
@@ -274,6 +645,26 @@ svg
 		text-align: left
 		font-size: 0.8125rem
 		line-height: 1.3
+@media screen and (max-width: $medium)
+	.fos
+		grid-template-columns: 1fr 2fr
+@media screen and (max-width: $tablet)
+	.fos
+		grid-template-columns: 1fr 4fr
+@media screen and (max-width: $phone)
+	.fos
+		grid-template-columns: 1fr
+		&__window
+			padding: 1.8rem 1rem 2.5rem
+		&__form
+			grid-template-columns: 1fr
+			grid-template-areas: unset
+		&__input
+			grid-area: unset
+			&--submit
+				grid-area: unset
+		&__soglasie
+			grid-area: unset	
 
 .gallery
 	padding: 4.25rem 0 3.3rem
@@ -282,10 +673,33 @@ svg
 		margin: 35px -15px
 		justify-content: center
 	&__item
-		padding: 0 15px
+		margin: 0 15px
 		flex: 1 1
 		max-width: 230px
-
+		&::before
+			padding-top: 75%
+@media screen and (max-width: $tablet)
+	.gallery
+		&__wrap
+			flex-wrap: wrap
+		&__item
+			flex: 1 1 150px
+			margin-bottom: 1rem
+@media screen and (max-width: $phone)
+	.gallery
+		padding: 1.25rem 0 0.5rem 
+		&__wrap
+			margin: 1rem 0
+		&__item
+			flex: 0 0 50%
+			max-width: 50%
+@media screen and (max-width: 400px)
+	.gallery
+		&__wrap
+			margin: 1rem 0
+		&__item
+			flex: 0 0 100%
+			max-width: 100%
 .contacts
 	display: flex
 	justify-content: stretch
@@ -294,16 +708,47 @@ svg
 	&__item
 		display: grid
 		grid-template-columns: 2.375rem 1fr
-		grid-template-rows: 1rem
-		grid-gap: 0.375rem
+		grid-template-rows: min-content
+		grid-column-gap: 0.75rem
+		grid-row-gap: 0.2rem
 		align-items: start
-		flex: 1
+		min-width: 225px
+		margin-right: 40px
 	&__icon
 		grid-row: 1/3
+		svg
+			max-height: 36px
 	&__name
 		font-weight: 900
 		text-transform: uppercase
-		
+		line-height: 1
+	&__link
+		color: #000000
+		line-height: 1.3
+	&__social
+		margin-left: -0.25rem
+	&__social_name
+		line-height: 1
+	&__social_link
+		display: inline-block
+		width: 1.4375rem
+		line-height: 2
+		margin-right: 0.5rem
+@media screen and (max-width: $medium)
+	.contacts
+		&__item
+			flex: 1 1 40%
+			padding-bottom: 1.5rem
+			margin-right: 0px
+		&__social
+			flex: 1 1 40%
+@media screen and (max-width: $phone)
+	.contacts
+		flex-direction: column
+		&__social
+			margin: 0 0 1rem	
+			&_name
+				display: inline-block
 
 .fst_scr
 	background-position: center
@@ -312,13 +757,52 @@ svg
 .gray
 	background-color: #ededed
 .btn_submit
-	border-radius: 1.4375rem
-	line-height: 2.875rem
+	border-radius: 1.5625rem
+	line-height: 3.125rem
 	border: none
 	background-color: #fcd22e
 	font-size: 0.875rem
 	font-weight: bold
 	text-transform: uppercase
+	text-align: center
+	box-shadow: 0px 4px 10px 0px rgba(241, 209, 67, 0.5)
+	&:hover
+		background-color: #fcd22eaa
+
+a[data-fslightbox]
+	position: relative
+	&::before
+		content: ""
+		display: block
+	&::after
+		content: ""
+		display: block
+		width: 100%
+		height: 100%
+		position: absolute
+		top: 0
+		left: 0
+		right: 0
+		bottom: 0
+		opacity: 0
+		background-color: rgba(43, 38, 47, 0.8)
+		background-image: url("data:image/svg+xml;charset=UTF-8,%3csvg xmlns='http://www.w3.org/2000/svg' width='48.5424' height='48.5424'%3e%3ccircle cx='24.2712' cy='24.2712' r='24.2712' opacity='.92' fill='%23efbf2d'/%3e%3cpath d='M29.7319 20.1544h-1.344v-1.3439a.667.667 0 0 0-1.3339 0v1.344H25.71a.667.667 0 0 0 0 1.3338h1.344v1.344a.667.667 0 0 0 1.334 0v-1.344h1.3439a.667.667 0 0 0 0-1.3339zm2.5948-3.9388c-1.2302-1.2302-2.866-1.9078-4.6058-1.9078-1.7398 0-3.3755.6776-4.6057 1.9078-1.2303 1.2303-1.9078 2.866-1.9078 4.6058 0 1.7398.6776 3.3755 1.9078 4.6058 1.2302 1.2303 2.866 1.9079 4.6057 1.9079 1.7399 0 3.3756-.6776 4.6058-1.9079 1.2303-1.2302 1.9079-2.866 1.9079-4.6058-.0001-1.7397-.6776-3.3754-1.9079-4.6058zm-.9433 8.2684c-.9783.9783-2.279 1.5171-3.6625 1.5171-1.3835 0-2.6842-.5388-3.6625-1.5171-.9784-.9784-1.5171-2.279-1.5171-3.6625 0-1.3836.5387-2.6842 1.5171-3.6626.9783-.9783 2.279-1.5171 3.6625-1.5171 1.3835 0 2.6842.5388 3.6625 1.5171.9784.9784 1.5172 2.279 1.5172 3.6626 0 1.3835-.5388 2.6842-1.5172 3.6625zm2.9873-10.3123c-3.6668-3.6666-9.6328-3.6665-13.2995 0-3.508 3.5082-3.6592 9.1208-.4547 12.811l-1.1202 1.1202-1.1414-1.1414a.6671.6671 0 0 0-.9433 0l-5.3475 5.3474c-1.1493 1.1495-1.1493 3.0198 0 4.1693.5748.5748 1.3298.8621 2.0847.8621.7549 0 1.5099-.2874 2.0846-.862l5.3475-5.3475a.667.667 0 0 0 0-.9433l-1.1414-1.1414 1.1202-1.1202c1.7617 1.5299 3.9613 2.2953 6.1613 2.2953 2.4081 0 4.8164-.9167 6.6497-2.75 3.6666-3.6667 3.6666-9.6328 0-13.2995zM15.2901 35.535c-.6293.6293-1.6533.6295-2.2828 0-.6294-.6293-.6294-1.6535 0-2.2828l2.984-2.984 2.2829 2.2828zm3.9274-3.9273l-2.2828-2.2828.9485-.9485 2.2828 2.2827zm14.21-5.0798c-3.1466 3.1465-8.2665 3.1466-11.413 0-3.1466-3.1465-3.1466-8.2664 0-11.413 1.5734-1.5735 3.6395-2.36 5.7065-2.36 2.0663 0 4.1334.787 5.7065 2.36 3.1465 3.1466 3.1465 8.2665 0 11.413z'/%3e%3c/svg%3e")
+		background-position: center
+		background-size: 3rem
+		background-repeat: no-repeat
+		transition: opacity 0.2s ease 
+	&:hover::after
+		opacity: 1
+	img
+		position: absolute
+		top: 0
+		left: 0
+		right: 0
+		bottom: 0
+		object-fit: cover
+		height: 100%
+		width: 100%
+
 input[type=checkbox]
 	position: absolute
 	display: block
@@ -358,3 +842,64 @@ input[type=checkbox]
 		border-color: #fcd22e
 		&::before
 			opacity: 1
+
+.slider
+	display: contents
+	&__control
+		display:none
+
+@media screen and (max-width: $phone)
+	.slider
+		display: block
+		position: relative
+		overflow: hidden
+	.slider__wrapper
+		display: flex
+		flex-wrap: nowrap
+		transition: transform 0.6s ease
+		justify-content: initial
+		// 0.6 длительность смены слайда в секундах
+	.slider__item
+		margin: 0
+		// определяет количество активных слайдов (в данном случае 2
+	// СТИЛИ ДЛЯ КНОПОК "НАЗАД" И "ВПЕРЁД"
+	.slider__control
+		position: absolute
+		display: none
+		top: 50%
+		transform: translateY(-50%)
+		align-items: center
+		justify-content: center
+		text-align: center
+		width: 40px
+		// ширина кнопки
+		height: 50px
+		// высота кнопки
+		opacity: .5
+		// прозрачность
+		background: #000
+		// цвет фона
+	.slider__control_show
+		display: flex
+	.slider__control
+		&:hover, &:focus
+		text-decoration: none
+		outline: 0
+		opacity: .9
+		// прозрачность
+	.slider__control_left
+		left: 0
+	.slider__control_right
+		right: 0
+	.slider__control::before
+		content: ''
+		display: inline-block
+		width: 20px
+		height: 20px
+		// высота иконки (стрелочки)
+		background: transparent no-repeat center center
+		background-size: 100% 100%
+	.slider__control_left::before
+		background-image: url("data:image/svg+xml;charset=utf8,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='%23fff' viewBox='0 0 8 8'%3E%3Cpath d='M5.25 0l-4 4 4 4 1.5-1.5-2.5-2.5 2.5-2.5-1.5-1.5z'/%3E%3C/svg%3E")
+	.slider__control_right::before
+		background-image: url("data:image/svg+xml;charset=utf8,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='%23fff' viewBox='0 0 8 8'%3E%3Cpath d='M2.75 0l-1.5 1.5 2.5 2.5-2.5 2.5 1.5 1.5 4-4-4-4z'/%3E%3C/svg%3E")
