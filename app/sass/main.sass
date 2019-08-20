@@ -52,6 +52,11 @@ h1, .h1, h2, .h2
 		width: 66px
 		height: 34px
 		background: url("data:image/svg+xml;charset=UTF-8,%3csvg xmlns='http://www.w3.org/2000/svg' width='50.539' height='4.135' viewBox='0 0 13.372 1.094'%3e%3cpath d='M.001.565l13.37-.036' fill='none' stroke='%23fdd32f' stroke-width='.794'/%3e%3c/svg%3e") no-repeat 0% 50% 
+	&--404
+		margin: 2.25rem 0 0
+		text-align: center
+		&::before
+			content: none
 h1, .h1
 	font-size: 3.625rem
 h2, .h2
@@ -128,7 +133,7 @@ table
 	margin: 2.7125rem 0 1rem
 	font-size: 1.125rem
 	display: inline-block
-	overflow-x: scroll
+	overflow-x: auto
 	white-space: nowrap
 	max-width: 100%	
 tr
@@ -208,6 +213,9 @@ a[data-fslightbox]
 	box-shadow: 0px 4px 10px 0px rgba(241, 209, 67, 0.5)
 	&:hover
 		background-color: #fcd22eaa
+	&[disabled]
+		background-color: #333
+		color: #fff
 .top
 	display: grid
 	grid-template-columns: 115px 1fr 1fr
@@ -252,6 +260,12 @@ a[data-fslightbox]
 		grid-column-gap: 2rem
 		&--footer
 			grid-template-columns: 75px 4fr 1fr
+		&--main
+			width: calc(100% - 20px)
+@media screen and (max-width: $tablet)
+	.top
+		&--main
+			padding-right: 0
 @media screen and (max-width: $phone)
 	.top
 		grid-template-columns: minmax(80px, 1fr) 5fr
@@ -411,15 +425,20 @@ a[data-fslightbox]
 		grid-template-columns: 1fr 1fr 1fr
 		grid-gap: 32px
 		margin-top: 44px
+
 @media screen and (max-width: $medium)
 	.features
 		padding: 9.065rem 0 6.25rem
+		&__bg
+			background: url('../img/struzhka1.png') no-repeat -10% 0, url('../img/struzhka2.png') no-repeat 105% 105%
 		&__wrap
 			grid-template-columns: 1fr 1fr
-@media screen and (max-width: $medium)
+@media screen and (max-width: $tablet)
 	.features
 		&__wrap
 			grid-gap: 1.25rem
+		&__bg
+			background: none
 @media screen and (max-width: $phone)
 	.features
 		padding: 9.065rem 0 6.25rem
@@ -571,6 +590,8 @@ a[data-fslightbox]
 					transform: scale(1)
 					height: 100%
 					padding: 7px 16px
+					&::after
+						content: none
 		&__info
 			grid-column: 1
 @media screen and (max-width: $phone)
@@ -610,9 +631,31 @@ a[data-fslightbox]
 				position: static
 .shares
 	padding: 4.25rem 0 7.0625rem
+	&__link
+		grid-column-start: 4
+		color: inherit
+		justify-self: end
+		align-self: end
+		margin-bottom: 0.6125rem
+		min-width: 10.125rem
+		&:hover
+			color: inherit
+			text-decoration: none
 @media screen and (max-width: $medium)
 	.shares
 		padding: 2.25rem 0 4.0625rem
+		&__link
+			grid-column-start: 2
+			min-width: 50%
+@media screen and (max-width: $tablet)
+	.shares
+		&__link
+			min-width: unset
+			justify-self: unset
+@media screen and (max-width: $phone)
+	.shares
+		&__link
+			grid-column: 1/3
 .share
 	display: grid
 	grid-template-columns: repeat(4, 1fr)
@@ -705,6 +748,10 @@ a[data-fslightbox]
 			grid-area: theme
 		&--submit
 			grid-area: submit
+		&:invalid
+			background-color: red
+			color: black
+			font-weight: bold
 	&__soglasie
 		grid-area: sogl
 		display: flex
@@ -870,9 +917,26 @@ a[data-fslightbox]
 	background-repeat: no-repeat
 .gray
 	background-color: #ededed
-
-
-
+.p404
+	padding: 12% 25% 6.5rem
+	position: relative
+	background: url('../img/struzhka1.png') no-repeat 9% 19%, url('../img/struzhka2.png') no-repeat 89% 78%
+	&__img
+		width: 87%
+		margin: 0 auto
+	&__txt
+		margin-top: -1rem
+		text-align: center
+		font-size: 1.125rem
+@media screen and (max-width: $tablet)
+	.p404
+		background: none
+		padding-bottom: 3.5rem
+		&__txt
+			margin-top: 0
+@media screen and (max-width: $tablet)
+	.p404
+		padding: 12% 0 2.5rem
 
 input[type=checkbox]
 	position: absolute
@@ -918,7 +982,6 @@ input[type=checkbox]
 	display: contents
 	&__control
 		display:none
-
 @media screen and (max-width: $phone)
 	.slider
 		display: block

@@ -8,7 +8,7 @@ document.addEventListener("DOMContentLoaded", function() {
 		let ya_map = document.createElement('script');
 		ya_map.setAttribute('type', 'text/javascript');
 		ya_map.setAttribute('charset', 'utf-8');
-		ya_map.setAttribute('src', 'https://api-maps.yandex.ru/services/constructor/1.0/js/?um=constructor%3Ae58f74a26bf3cdc29afb827d8c6d3dd8842c51f90ffb659bf945e55715da694c&amp;width=100%25&amp;height=400&amp;lang=ru_RU&amp;scroll=false');
+		ya_map.setAttribute('src', map.map_script);
 		document.querySelector('#map').appendChild(ya_map);
 	}
 
@@ -43,8 +43,8 @@ document.addEventListener("DOMContentLoaded", function() {
 			target.classList.add('mall__ul_li--active');
 		}
 	}
-	if (window.innerWidth < 681) {
-		var multiItemSlider = (function () {
+//Слайдер
+	var multiItemSlider = (function () {
 	      return function (selector, config) {
 	        var
 	          _mainElement = document.querySelector(selector), // основный элемент блока
@@ -127,7 +127,49 @@ document.addEventListener("DOMContentLoaded", function() {
 
 	      }
 	    }());
+	    var gallery_slider = multiItemSlider('.gallery .slider');
+	    for (let i = 0, mall = document.querySelectorAll('.mall__tab'), len = mall.length; i < len; i++) {
+	    	if (document.querySelector('#' + mall[i].id + ' .slider')) {
+	    		let mall_slider = multiItemSlider('#' + mall[i].id + ' .slider')
+	    	}
+	    } 
 
-	    var mall_slider = multiItemSlider('.slider.mall__tab_gallery'), gallery_slider =multiItemSlider('.gallery .slider'); 
+//Форма: отключение кнопки отправить для незаполненной формы
+	function phone_mask(event) {
+		if (!this.value) {
+			this.value = '+7 ';}
+		else if (this.value === '+7 ') {
+			this.value = '';
+		}
 	}
+	function stop_non_digit() {
+		if (((event.keyCode>45)&&(event.keyCode<58))||(event.keyCode==8)) {return} 
+		else {event.preventDefault();} 
+	}
+	function stop_enter_send(event) {
+		if (event.keyCode == 13) {
+			event.preventDefault();
+		} return;
+	}
+	function set_valid_form() {
+		let invalid = document.querySelectorAll('.fos__input:invalid').length;
+		if (invalid === 0) {
+			document.querySelector('.fos__input--submit').removeAttribute('disabled');
+		} else {
+			document.querySelector('.fos__input--submit').setAttribute('disabled', 'true');
+		}
+
+	}
+	document.querySelector('.fos__input--phone').addEventListener('focus', phone_mask);
+	document.querySelector('.fos__input--phone').addEventListener('blur', phone_mask);
+	document.querySelector('.fos__input--phone').addEventListener('keypress', stop_non_digit);
+	document.querySelectorAll('.fos__input').forEach(function(el){
+		el.addEventListener('keypress', stop_enter_send);
+	});
+	document.querySelectorAll('.fos__input').forEach(function(el){
+		el.addEventListener('change', set_valid_form);
+	});
+	document.querySelectorAll('.fos__input').forEach(function(el){
+		el.addEventListener('keyup', set_valid_form);
+	});
 });
