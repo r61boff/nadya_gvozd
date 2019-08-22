@@ -4,18 +4,21 @@ document.addEventListener("DOMContentLoaded", function() {
 	// Custom JS
 //Загрузка карты, отложенная до полной загрузки ресурсов
 	window.onload = function() {
-		console.log (document.querySelector('.map'));
-		let ya_map = document.createElement('script');
-		ya_map.setAttribute('type', 'text/javascript');
-		ya_map.setAttribute('charset', 'utf-8');
-		ya_map.setAttribute('src', map.map_script);
-		document.querySelector('#map').appendChild(ya_map);
+		if (document.querySelector('#map')) {
+			function add_map() {
+				let ya_map = document.createElement('script');
+				ya_map.setAttribute('type', 'text/javascript');
+				ya_map.setAttribute('charset', 'utf-8');
+				ya_map.setAttribute('src', map.map_script);
+				document.querySelector('#map').appendChild(ya_map);
+			}	
+			setTimeout(add_map, 5000);
+		}
 	}
 
 	document.querySelector('.mall__ul').addEventListener('click', mall_active);
 	function mall_active (e) {
 		let target = e.target.closest('.mall__ul_li'), li = this.querySelectorAll('.mall__ul_li'), tab = document.querySelectorAll('.mall__tab'), mall_map = document.querySelector('#mall_map').contentDocument, targetid = target.id;
-		console.log (mall_map);
 		if (window.innerWidth < 769) {
 			if (target.classList.contains('mall__ul_li--shown')) {
 				for (let i = 0, len = li.length; i < len; i++) {
@@ -151,14 +154,43 @@ document.addEventListener("DOMContentLoaded", function() {
 			event.preventDefault();
 		} return;
 	}
-	function set_valid_form() {
-		let invalid = document.querySelectorAll('.fos__input:invalid').length;
-		if (invalid === 0) {
-			document.querySelector('.fos__input--submit').removeAttribute('disabled');
-		} else {
-			document.querySelector('.fos__input--submit').setAttribute('disabled', 'true');
-		}
+	function send_formData(event) {
+		event.preventDefault();
+		let formData = new FormData(this);
+		formData.append('action', 'send_formData');
+		console.log(formData.get('action'));
+		//Настройка запроса
+		let request = new XMLHttpRequest();
+	    request.open('POST', map.ajaxurl, true);
+	    request.setRequestHeader('accept', 'application/json');
+	    console.log(request);
+	    //отправка запроса
+	    request.send(formData);
+	    // Функция для наблюдения изменения состояния request.readyState обновления statusMessage соответственно
+        request.onreadystatechange = function () {
+            // <4 =  ожидаем ответ от сервера
+            let btn_mess = document.querySelector('.fos__input--submit');
+            btn_mess.setAttribute('disabled', 'disabled');
+            if (request.readyState < 4) {
+                btn_mess.innerText = 'Отправляется...';
+                btn_mess.style.color = 'yellow';
+            }
+            // 4 = Ответ от сервера полностью загружен
+            else if (request.readyState === 4) {
+                // 200 - 299 = успешная отправка данных!
+                if (request.status == 200 && request.status < 300) {
+                    	btn_mess.innerText = 'Отправлено';
+                		btn_mess.style.color = 'green';
+                		console.log( request.responseText );
+                }
 
+                else {
+
+	                    btn_mess.innerText = 'Ошибка';
+	                	btn_mess.style.color = 'red';
+            	}
+            }
+        }
 	}
 	document.querySelector('.fos__input--phone').addEventListener('focus', phone_mask);
 	document.querySelector('.fos__input--phone').addEventListener('blur', phone_mask);
@@ -166,10 +198,5 @@ document.addEventListener("DOMContentLoaded", function() {
 	document.querySelectorAll('.fos__input').forEach(function(el){
 		el.addEventListener('keypress', stop_enter_send);
 	});
-	document.querySelectorAll('.fos__input').forEach(function(el){
-		el.addEventListener('change', set_valid_form);
-	});
-	document.querySelectorAll('.fos__input').forEach(function(el){
-		el.addEventListener('keyup', set_valid_form);
-	});
+	document.querySelector('.fos__form').addEventListener('submit', send_formData);
 });

@@ -28,6 +28,8 @@ body
 	color: $text
 a
 	text-underline-position: under
+	&:hover
+		color: #fdd32f
 // Custom Sass / Remove before use
 
 .container
@@ -214,7 +216,7 @@ a[data-fslightbox]
 	&:hover
 		background-color: #fcd22eaa
 	&[disabled]
-		background-color: #333
+		background-color: #3333
 		color: #fff
 .top
 	display: grid
@@ -748,10 +750,13 @@ a[data-fslightbox]
 			grid-area: theme
 		&--submit
 			grid-area: submit
+			transition: all 0.2s ease
 		&:invalid
-			background-color: red
-			color: black
-			font-weight: bold
+			//background-color: red
+			//color: black
+			//font-weight: bold
+		&:required:valid
+			border-color: inherit
 	&__soglasie
 		grid-area: sogl
 		display: flex
@@ -821,6 +826,7 @@ a[data-fslightbox]
 	justify-content: stretch
 	flex-wrap: wrap
 	margin-top: 39px
+	padding-bottom: 20px
 	&__item
 		display: grid
 		grid-template-columns: 2.375rem 1fr
@@ -907,10 +913,14 @@ a[data-fslightbox]
 		padding-top: 0.3rem
 		border-radius: 50%
 		background-color: #ececec
+		color: #000
 		&--current
 			background-color: #f2d244
 		&:hover:not(&--current)
 			background-color: #f2d24488
+			color: inherit
+			text-decoration: none
+			
 .fst_scr
 	background-position: center
 	background-size: cover
@@ -941,10 +951,7 @@ a[data-fslightbox]
 input[type=checkbox]
 	position: absolute
 	display: block
-	width: 1px
-	height: 1px
 	opacity: 0
-	left: -9999px
 	&~label.checkbox
 		display: inline-flex
 		justify-content: center

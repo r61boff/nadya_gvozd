@@ -337,10 +337,10 @@
 						<div class="h3">Узнайте о наличии товара</div>
 						<div class="fos__txt">Оставьте заявку и мы вам перезвоним</div>
 						<form action="" class="fos__form">
-							<input type="text" class="fos__input fos__input--name" placeholder="Ваше имя" required>
-							<input type="phone" class="fos__input fos__input--phone" placeholder="Телефон" required pattern="\+{0,1}[0-9]{1,2} [0-9]{3,4}[0-9]{6,7}" minlength="0" maxlength="14">
-							<input type="text" class="fos__input fos__input--theme" placeholder="Какой товар вас интересует?" required>
-							<button class="btn_submit fos__input--submit" disabled="disabled">Отправить</button>
+							<input type="text" name="Имя" class="fos__input fos__input--name" placeholder="Ваше имя*" required>
+							<input type="phone" name="Телефон" class="fos__input fos__input--phone" placeholder="Телефон*" required pattern="\+{0,1}[0-9]{1,2} [0-9]{3,4}[0-9]{6,7}" minlength="0" maxlength="14">
+							<input type="text" name="Тема" class="fos__input fos__input--theme" placeholder="Какой товар вас интересует?*" required>
+							<button class="btn_submit fos__input--submit">Отправить</button>
 						<div class="fos__soglasie">
 							<input type="checkbox" name="fos_soglasen" id="fos_soglasen" class="fos__checkbox fos__input" required><label for="fos_soglasen" class="checkbox"></label>
 							<label for="fos_soglasen" class="fos__soglasen_txt">Я ознакомлен с <a href="#">политикой конфиденциальности</a> и согласен на <a href="#">обработку персональных данных</a></label>
